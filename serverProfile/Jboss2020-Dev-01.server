@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Server AdminConsolePort="9999" AdminHost="devTest1.bmc.com"
+  AdminPassword="e1BIRTF9UmRObUlFYszg0Nko3dczBHclY3WTVJUT09"
+  AdminPort="10090" AdminUser="root" AppserverVendor="jbosseap72"
+  BMAVersion="4.7.0" OriginalBMAVersion="4.7.0"
+  RestartScript="#!/bin/bash &#xd;&#xa; /etc/init.d/jboss restart"
+  SecurityRealm="ManagementRealm"
+  StartScript="#!/bin/bash &#xd;&#xa; /etc/init.d/jboss start"
+  StopScript="#!/bin/bash &#xd;&#xa; /etc/init.d/jboss stop" UseSecureConnection="true">
+  <SSHConnection Host="testserver"
+    Password="e1BIRTF9OWRDV25CWjYrWdsVVvL3BYY3NhN0hkZz09" Protocol="SSH"
+    TempDir="/tmp" User="admin"/>
+  <ConnectionType Protocol="RMI"/>
+  <TrustStore TrustStoreFile="/var/bma/Certs/jk_diff_alias.jks" TrustStorePassword="e1BIRTF9ME1s2eWt2Y3pIdSXBoaytVNnFpOGcxZz09"/>
+</Server>
