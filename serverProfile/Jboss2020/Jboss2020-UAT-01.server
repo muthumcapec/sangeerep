@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Server AdminConsolePort="9990" AdminHost="UATTest1.bmc.com"
+  AdminPassword="e1BIRTF9UmRObUlsFYzg0Nko3czBHdclY3WTVJUT09"
+  AdminPort="10090" AdminUser="root" AppserverVendor="jbosseap72"
+  BMAVersion="4.7.0" OriginalBMAVersion="4.7.0"
+  RestartScript="#!/bin/bash &#xd;&#xa; /etc/init.d/jboss restart"
+  SecurityRealm="ManagementRealm"
+  StartScript="#!/bin/bash &#xd;&#xa; /etc/init.d/jboss start"
+  StopScript="#!/bin/bash &#xd;&#xa; /etc/init.d/jboss stop" UseSecureConnection="true">
+  <SSHConnection Host="UATTest1"
+    Password="e1BIRTF9OWRDV25CWjYrWVdVvL3BYY3NhN0hkZz09" Protocol="SSH"
+    TempDir="/tmp" User="admin"/>
+  <ConnectionType Protocol="RMI"/>
+  <TrustStore useRetrieveSigners="true"/>
+</Server>
