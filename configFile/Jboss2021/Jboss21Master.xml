@@ -1,0 +1,460 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Phurnace BMAVersion="4.7.0" OriginalBMAVersion="4.7.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.phurnace.com/schemas/jbosseap72">
+  <Profile SelfName="${ph:profile_name}"
+    cloneFrom="${ph:profile_cloneFrom}" name="${ph:profile_name}">
+    <Subsystem SelfName="datasources" SelfType="subsystem">
+      <Configuration SelfName="${ph:datasource_dspool_0_name}" SelfType="data-source">
+        <Attribute name="background-validation" type="java.lang.String" value="false"/>
+        <Attribute name="blocking-timeout-wait-millis"
+          type="java.lang.String" value="${ph:datasource_dspool_0_blockTimeoutMs}"/>
+        <Attribute name="check-valid-connection-sql"
+          type="java.lang.String" value="select 1 from dual"/>
+        <Attribute name="driver-class" type="java.lang.String" value="oracle.jdbc.driver.OracleDriver"/>
+        <Attribute name="exception-sorter-class-name"
+          type="java.lang.String" value="org.jboss.jca.adapters.jdbc.extensions.oracle.OracleExceptionSorter"/>
+        <Attribute name="flush-strategy" type="java.lang.String" value="${ph:datasource_dspool_0_flushStrategy}"/>
+        <Attribute name="stale-connection-checker-class-name"
+          type="java.lang.String" value="org.jboss.jca.adapters.jdbc.extensions.oracle.OracleStaleConnectionChecker"/>
+        <Attribute name="valid-connection-checker-class-name"
+          type="java.lang.String" value="org.jboss.jca.adapters.jdbc.extensions.oracle.OracleValidConnectionChecker"/>
+        <Attribute name="pool-prefill" type="java.lang.String" value="true"/>
+        <Attribute name="pool-use-strict-min" type="java.lang.String" value="true"/>
+        <Attribute name="statistics-enabled" type="java.lang.String" value="true"/>
+        <Attribute name="connection-url" type="java.lang.String" value="${ph:datasource_dspool_0_connUrl}"/>
+        <Attribute name="driver-name" type="java.lang.String" value="${ph:datasource_dspool_0_driverName}"/>
+        <Attribute name="idle-timeout-minutes" type="java.lang.String" value="${ph:datasource_dspool_0_idleTimeoutMin}"/>
+        <Attribute name="jndi-name" type="java.lang.String" value="${ph:datasource_dspool_0_jndiName}"/>
+        <Attribute name="max-pool-size" type="java.lang.String" value="${ph:datasource_dspool_0_maxPool}"/>
+        <Attribute name="min-pool-size" type="java.lang.String" value="${ph:datasource_dspool_0_minPool}"/>
+        <Attribute name="password" type="java.lang.String" value="${ph:datasource_dspool_0_password}"/>
+        <Attribute name="user-name" type="java.lang.String" value="${ph:datasource_dspool_0_username}"/>
+        <Attribute name="validate-on-match" type="java.lang.String" value="true"/>
+      </Configuration>
+      <Configuration SelfName="${ph:datasource_dspool_1_name}" SelfType="data-source">
+        <Attribute name="background-validation" type="java.lang.String" value="false"/>
+        <Attribute name="check-valid-connection-sql"
+          type="java.lang.String" value="${ph:datasource_dspool_1_validSql}"/>
+        <Attribute name="enabled" type="java.lang.String" value="true"/>
+        <Attribute name="use-ccm" type="java.lang.String" value="false"/>
+        <Attribute name="connection-url" type="java.lang.String" value="${ph:datasource_dspool_1_connUrl}"/>
+        <Attribute name="driver-name" type="java.lang.String" value="${ph:datasource_dspool_1_driverName}"/>
+        <Attribute name="idle-timeout-minutes" type="java.lang.String" value="${ph:datasource_dspool_1_idleTimeoutMin}"/>
+        <Attribute name="jndi-name" type="java.lang.String" value="${ph:datasource_dspool_1_jndiName}"/>
+        <Attribute name="max-pool-size" type="java.lang.String" value="${ph:datasource_dspool_1_maxPool}"/>
+        <Attribute name="min-pool-size" type="java.lang.String" value="${ph:datasource_dspool_1_minPool}"/>
+        <Attribute name="password" type="java.lang.String" value="${ph:datasource_dspool_1_password}"/>
+        <Attribute name="user-name" type="java.lang.String" value="${ph:datasource_dspool_1_username}"/>
+        <Attribute name="validate-on-match" type="java.lang.String" value="true"/>
+      </Configuration>
+      <Configuration SelfName="${ph:datasource_dspool_2_name}" SelfType="data-source">
+        <Attribute name="background-validation" type="java.lang.String" value="false"/>
+        <Attribute name="enabled" type="java.lang.String" value="true"/>
+        <Attribute name="exception-sorter-class-name"
+          type="java.lang.String" value="org.jboss.jca.adapters.jdbc.extensions.db2.DB2ExceptionSorter"/>
+        <Attribute name="share-prepared-statements"
+          type="java.lang.String" value="false"/>
+        <Attribute name="stale-connection-checker-class-name"
+          type="java.lang.String" value="org.jboss.jca.adapters.jdbc.extensions.db2.DB2StaleConnectionChecker"/>
+        <Attribute name="use-ccm" type="java.lang.String" value="false"/>
+        <Attribute name="use-fast-fail" type="java.lang.String" value="true"/>
+        <Attribute name="valid-connection-checker-class-name"
+          type="java.lang.String" value="org.jboss.jca.adapters.jdbc.extensions.db2.DB2ValidConnectionChecker"/>
+        <Attribute name="connection-url" type="java.lang.String" value="${ph:datasource_dspool_2_connUrl}"/>
+        <Attribute name="driver-name" type="java.lang.String" value="${ph:datasource_dspool_2_driverName}"/>
+        <Attribute name="idle-timeout-minutes" type="java.lang.String" value="${ph:datasource_dspool_2_idleTimeoutMin}"/>
+        <Attribute name="jndi-name" type="java.lang.String" value="${ph:datasource_dspool_2_jndiName}"/>
+        <Attribute name="max-pool-size" type="java.lang.String" value="${ph:datasource_dspool_2_maxPool}"/>
+        <Attribute name="min-pool-size" type="java.lang.String" value="${ph:datasource_dspool_2_minPool}"/>
+        <Attribute name="password" type="java.lang.String" value="${ph:datasource_dspool_2_password}"/>
+        <Attribute name="user-name" type="java.lang.String" value="${ph:datasource_dspool_2_username}"/>
+        <Attribute name="validate-on-match" type="java.lang.String" value="true"/>
+      </Configuration>
+      <Configuration SelfName="${ph:datasource_driver_0_name}" SelfType="jdbc-driver">
+        <Attribute name="driver-module-name" type="java.lang.String" value="${ph:datasource_driver_0_moduleName}"/>
+        <Attribute name="driver-name" type="java.lang.String" value="${ph:datasource_driver_0_name}"/>
+        <Attribute name="driver-class-name" type="java.lang.String" value="oracle.jdbc.driver.OracleDriver"/>
+        <Attribute name="driver-xa-datasource-class-name"
+          type="java.lang.String" value="oracle.jdbc.xa.client.OracleXADataSource"/>
+      </Configuration>
+      <Configuration SelfName="${ph:datasource_driver_1_name}" SelfType="jdbc-driver">
+        <Attribute name="driver-module-name" type="java.lang.String" value="${ph:datasource_driver_1_moduleName}"/>
+        <Attribute name="driver-name" type="java.lang.String" value="${ph:datasource_driver_1_name}"/>
+        <Attribute name="driver-class-name" type="java.lang.String" value="com.ibm.optim.connect.jdbc.NvDriver"/>
+        <Attribute name="driver-xa-datasource-class-name"
+          type="java.lang.String" value="com.ibm.optim.connect.jdbc.NvDataSource"/>
+      </Configuration>
+      <Configuration SelfName="${ph:datasource_driver_2_name}" SelfType="jdbc-driver">
+        <Attribute name="driver-module-name" type="java.lang.String" value="${ph:datasource_driver_2_moduleName}"/>
+        <Attribute name="driver-name" type="java.lang.String" value="${ph:datasource_driver_2_name}"/>
+        <Attribute name="driver-xa-datasource-class-name"
+          type="java.lang.String" value="com.ibm.db2.jcc.DB2XADataSource"/>
+      </Configuration>
+    </Subsystem>
+    <Subsystem SelfName="logging" SelfType="subsystem">
+      <Configuration SelfName="CONSOLE" SelfType="console-handler">
+        <Attribute name="formatter" type="java.lang.String" value="%d %-5p [%c] (%t) %s%E%n"/>
+        <Attribute name="level" type="java.lang.String" value="${ph:logging_console_level}"/>
+        <Attribute name="name" type="java.lang.String" value="CONSOLE"/>
+      </Configuration>
+      <Configuration SelfName="${ph:logging_logger_0_name}" SelfType="logger">
+        <Attribute name="category" type="java.lang.String" value="${ph:logging_logger_0_name}"/>
+        <Attribute name="level" type="java.lang.String" value="${ph:logging_logger_0_level}"/>
+      </Configuration>
+      <Configuration SelfName="${ph:logging_pattern_0_name}" SelfType="pattern-formatter">
+        <Attribute name="pattern" type="java.lang.String" value="${ph:logging_pattern_0_pattern}"/>
+      </Configuration>
+      <Configuration SelfName="SPLUNK_FILE" SelfType="logger">
+        <Attribute name="handlers" type="java.lang.String" value="[&quot;SPLUNK_FILE_HANDLER&quot;]"/>
+        <Attribute name="level" type="java.lang.String" value="${ph:logging_handler_splunkFile_level}"/>
+      </Configuration>
+      <Configuration SelfName="SPLUNK_FILE_HANDLER" SelfType="periodic-rotating-file-handler">
+        <Attribute name="append" type="java.lang.String" value="true"/>
+        <Attribute name="file" type="java.lang.String" value="{&quot;relative-to&quot; => &quot;jboss.server.log.dir&quot;,&quot;path&quot; => &quot;txn-trace.log&quot;}"/>
+        <Attribute name="formatter" type="java.lang.String" value="%s%E%n"/>
+        <Attribute name="suffix" type="java.lang.String" value=".yyyy-MM-dd"/>
+      </Configuration>
+      <Configuration SelfName="FILE" SelfType="periodic-rotating-file-handler">
+        <Attribute name="append" type="java.lang.String" value="true"/>
+        <Attribute name="autoflush" type="java.lang.String" value="true"/>
+        <Attribute name="file" type="java.lang.String" value="{&quot;path&quot; => expression &quot;${ph:logging_handler_file}&quot;}"/>
+        <Attribute name="formatter" type="java.lang.String" value="%d %-5p [%c] (%t) %s%E%n"/>
+        <Attribute name="name" type="java.lang.String" value="FILE"/>
+        <Attribute name="suffix" type="java.lang.String" value=".yyyy-MM-dd"/>
+      </Configuration>
+      <Configuration SelfName="ROOT" SelfType="root-logger">
+        <Attribute name="handlers" type="java.lang.String" value="${ph:logging_root_handlers}"/>
+        <Attribute name="level" type="java.lang.String" value="${ph:logging_root_level}"/>
+      </Configuration>
+    </Subsystem>
+    <Subsystem SelfName="io" SelfType="subsystem">
+      <Configuration SelfName="default" SelfType="buffer-pool"/>
+      <Configuration SelfName="default" SelfType="worker"/>
+      <Configuration SelfName="undertow" SelfType="worker">
+        <Attribute name="io-threads" type="java.lang.String" value="${ph:io_threads}"/>
+        <Attribute name="task-max-threads" type="java.lang.String" value="${ph:io_httpMaxThreads}"/>
+      </Configuration>
+    </Subsystem>
+    <Subsystem SelfName="modcluster" SelfType="subsystem">
+      <Configuration SelfName="${ph:modcluster_proxyName}" SelfType="proxy">
+        <Attribute name="advertise" type="java.lang.String" value="false"/>
+        <Attribute name="connector" type="java.lang.String" value="${ph:modcluster_connector}"/>
+        <Attribute name="listener" type="java.lang.String" value="${ph:modcluster_connector}"/>
+        <Attribute name="proxy-url" type="java.lang.String" value="${ph:modcluster_proxyUrl}"/>
+        <Attribute name="ssl-context" type="java.lang.String" value="modcluster-ssl-context"/>
+        <Attribute name="proxies" type="java.lang.String" value="${ph:modcluster_proxies}"/>
+        <Configuration SelfName="dynamic" SelfType="load-provider">
+          <Configuration SelfName="busyness" SelfType="load-metric">
+            <Attribute name="type" type="java.lang.String" value="busyness"/>
+          </Configuration>
+        </Configuration>
+      </Configuration>
+    </Subsystem>
+    <Subsystem SelfName="elytron" SelfType="subsystem">
+      <Configuration SelfName="modcluster-ssl-context" SelfType="client-ssl-context">
+        <Attribute name="key-manager" type="java.lang.String" value="keymanager"/>
+        <Attribute name="trust-manager" type="java.lang.String" value="trustmanager"/>
+      </Configuration>
+      <Configuration SelfName="keymanager" SelfType="key-manager">
+        <Attribute name="algorithm" type="java.lang.String" value="${ph:elytron_keystore_algorithm}"/>
+        <Attribute name="credential-reference" type="java.lang.String" value="{&quot;clear-text&quot; => &quot;${ph:elytron_keystore_credential}&quot;}"/>
+        <Attribute name="key-store" type="java.lang.String" value="keystore"/>
+      </Configuration>
+      <Configuration SelfName="keystore" SelfType="key-store">
+        <Attribute name="credential-reference" type="java.lang.String" value="{&quot;clear-text&quot; => &quot;${ph:elytron_keystore_credential}&quot;}"/>
+        <Attribute name="path" type="java.lang.String" value="${ph:serverGroup_systemProp_keystoreFile}"/>
+        <Attribute name="type" type="java.lang.String" value="jks"/>
+      </Configuration>
+      <Configuration SelfName="trustmanager" SelfType="trust-manager">
+        <Attribute name="key-store" type="java.lang.String" value="truststore"/>
+      </Configuration>
+      <Configuration SelfName="truststore" SelfType="key-store">
+        <Attribute name="credential-reference" type="java.lang.String" value="{&quot;clear-text&quot; => &quot;${ph:elytron_truststore_credential}&quot;}"/>
+        <Attribute name="path" type="java.lang.String" value="${ph:serverGroup_systemProp_truststoreFile}"/>
+        <Attribute name="type" type="java.lang.String" value="jks"/>
+      </Configuration>
+    </Subsystem>
+    <Subsystem SelfName="resource-adapters" SelfType="subsystem">
+      <Configuration SelfName="${ph:rar_amq_name}" SelfType="resource-adapter">
+        <Attribute name="archive" type="java.lang.String" value="${ph:rar_amq_name}"/>
+        <Attribute name="bootstrap-context" type="java.lang.String" value="amqcontext"/>
+        <Attribute name="transaction-support" type="java.lang.String" value="XATransaction"/>
+        <Configuration SelfName="ServerUrl" SelfType="config-properties">
+          <Attribute name="value" type="java.lang.String" value="${ph:rar_amq_config_serverUrl}"/>
+        </Configuration>
+        <Configuration SelfName="${ph:rar_amq_connDef_0_jndi}" SelfType="connection-definitions">
+          <Attribute name="background-validation"
+            type="java.lang.String" value="false"/>
+          <Attribute name="class-name" type="java.lang.String" value="org.apache.activemq.ra.ActiveMQManagedConnectionFactory"/>
+          <Attribute name="enabled" type="java.lang.String" value="false"/>
+          <Attribute name="jndi-name" type="java.lang.String" value="${ph:rar_amq_connDef_0_jndi}"/>
+          <Attribute name="min-pool-size" type="java.lang.String" value="${ph:rar_amq_connDef_0_minPool}"/>
+          <Attribute name="security-application" type="java.lang.String" value="true"/>
+        </Configuration>
+      </Configuration>
+      <Configuration SelfName="${ph:rar_wmq_name}" SelfType="resource-adapter">
+        <Attribute name="archive" type="java.lang.String" value="${ph:rar_wmq_name}"/>
+        <Attribute name="bootstrap-context" type="java.lang.String" value="wmqcontext"/>
+        <Attribute name="transaction-support" type="java.lang.String" value="XATransaction"/>
+        <Configuration SelfName="connectionConcurrency" SelfType="config-properties">
+          <Attribute name="value" type="java.lang.String" value="${ph:rar_wmq_config_connConcurrency}"/>
+        </Configuration>
+        <Configuration SelfName="maxConnections" SelfType="config-properties">
+          <Attribute name="value" type="java.lang.String" value="${ph:rar_wmq_config_maxConn}"/>
+        </Configuration>
+        <Configuration SelfName="${ph:rar_wmq_adminObj_0_jndi}" SelfType="admin-objects">
+          <Attribute name="class-name" type="java.lang.String" value="com.ibm.mq.connector.outbound.MQQueueProxy"/>
+          <Attribute name="enabled" type="java.lang.String" value="true"/>
+          <Attribute name="jndi-name" type="java.lang.String" value="${ph:rar_wmq_adminObj_0_jndi}"/>
+          <Attribute name="use-java-context" type="java.lang.String" value="true"/>
+          <Configuration SelfName="baseQueueName" SelfType="config-properties">
+            <Attribute name="value" type="java.lang.String" value="${ph:rar_wmq_adminObj_0_config_baseQ}"/>
+          </Configuration>
+          <Configuration SelfName="targetClient" SelfType="config-properties">
+            <Attribute name="value" type="java.lang.String" value="${ph:rar_wmq_adminObj_0_config_targetClient}"/>
+          </Configuration>
+        </Configuration>
+        <Configuration SelfName="${ph:rar_wmq_connDef_0_jndi}" SelfType="connection-definitions">
+          <Attribute name="class-name" type="java.lang.String" value="com.ibm.mq.connector.outbound.ManagedConnectionFactoryImpl"/>
+          <Attribute name="idle-timeout-minutes" type="java.lang.String" value="${ph:rar_wmq_connDef_0_idleTimeoutMin}"/>
+          <Attribute name="jndi-name" type="java.lang.String" value="${ph:rar_wmq_connDef_0_jndi}"/>
+          <Attribute name="max-pool-size" type="java.lang.String" value="${ph:rar_wmq_connDef_0_maxPool}"/>
+          <Attribute name="min-pool-size" type="java.lang.String" value="${ph:rar_wmq_connDef_0_minPool}"/>
+          <Attribute name="pool-prefill" type="java.lang.String" value="true"/>
+          <Attribute name="pool-use-strict-min" type="java.lang.String" value="true"/>
+          <Attribute name="use-fast-fail" type="java.lang.String" value="true"/>
+          <Attribute name="flush-strategy" type="java.lang.String" value="${ph:rar_wmq_connDef_0_flushStrategy}"/>
+          <Configuration SelfName="channel" SelfType="config-properties">
+            <Attribute name="value" type="java.lang.String" value="${ph:rar_wmq_connDef_0_config_channel}"/>
+          </Configuration>
+          <Configuration SelfName="connectionNameList" SelfType="config-properties">
+            <Attribute name="value" type="java.lang.String" value="${ph:rar_wmq_connDef_0_config_connName}"/>
+          </Configuration>
+          <Configuration SelfName="transportType" SelfType="config-properties">
+            <Attribute name="value" type="java.lang.String" value="${ph:rar_wmq_connDef_0_config_transportType}"/>
+          </Configuration>
+          <Configuration SelfName="sslCipherSuite" SelfType="config-properties">
+            <Attribute name="value" type="java.lang.String" value="${ph:rar_wmq_connDef_0_config_sslCipher}"/>
+          </Configuration>
+        </Configuration>
+      </Configuration>
+    </Subsystem>
+    <Subsystem SelfName="naming" SelfType="subsystem">
+      <Configuration SelfName="${ph:naming_bindingName}" SelfType="binding">
+        <Attribute name="binding-type" type="java.lang.String" value="simple"/>
+        <Attribute name="value" type="java.lang.String" value="${ph:naming_bindingValue}"/>
+      </Configuration>
+    </Subsystem>
+    <Subsystem SelfName="undertow" SelfType="subsystem">
+      <Configuration SelfName="default" SelfType="buffer-cache"/>
+      <Configuration SelfName="filter" SelfType="configuration">
+        <Configuration SelfName="hsts-header" SelfType="response-header">
+          <Attribute name="header-name" type="java.lang.String" value="Strict-Transport-Security"/>
+          <Attribute name="header-value" type="java.lang.String" value="max-age=31536000"/>
+        </Configuration>
+        <Configuration SelfName="server-header" SelfType="response-header">
+          <Attribute name="header-name" type="java.lang.String" value="Server"/>
+          <Attribute name="header-value" type="java.lang.String" value="HIDDEN"/>
+        </Configuration>
+        <Configuration SelfName="x-powered-by-header" SelfType="response-header">
+          <Attribute name="header-name" type="java.lang.String" value="X-Powered-By"/>
+          <Attribute name="header-value" type="java.lang.String" value="HIDDEN"/>
+        </Configuration>
+      </Configuration>
+      <Configuration SelfName="handler" SelfType="configuration">
+        <Configuration SelfName="welcome-content" SelfType="file">
+          <Attribute name="path" type="java.lang.String" value="${jboss.home.dir}/welcome-content"/>
+        </Configuration>
+      </Configuration>
+      <Configuration SelfName="default-server" SelfType="server">
+        <Configuration SelfName="default-host" SelfType="host">
+          <Attribute name="alias" type="java.lang.String" value="[&quot;localhost&quot;]"/>
+          <Configuration SelfName="hsts-header" SelfType="filter-ref"/>
+          <Configuration SelfName="server-header" SelfType="filter-ref"/>
+          <Configuration SelfName="x-powered-by-header" SelfType="filter-ref"/>
+          <Configuration SelfName="single-sign-on" SelfType="setting">
+            <Attribute name="http-only" type="java.lang.String" value="true"/>
+            <Attribute name="secure" type="java.lang.String" value="true"/>
+          </Configuration>
+        </Configuration>
+        <Configuration SelfName="ajp" SelfType="ajp-listener">
+          <Attribute name="record-request-start-time"
+            type="java.lang.String" value="true"/>
+          <Attribute name="socket-binding" type="java.lang.String" value="ajp"/>
+        </Configuration>
+        <Configuration SelfName="http" SelfType="http-listener">
+          <Attribute name="record-request-start-time"
+            type="java.lang.String" value="true"/>
+          <Attribute name="socket-binding" type="java.lang.String" value="http"/>
+        </Configuration>
+        <Configuration SelfName="https-listener" SelfType="https-listener">
+          <Attribute name="enabled-cipher-suites"
+            type="java.lang.String" value="${ph:undertow_server_https_cipherSuite}"/>
+          <Attribute name="enabled-protocols" type="java.lang.String" value="${ph:undertow_server_https_protocol}"/>
+          <Attribute name="max-connections" type="java.lang.String" value="${ph:io_httpMaxThreads}"/>
+          <Attribute name="security-realm" type="java.lang.String" value="UndertowSSLRealm"/>
+          <Attribute name="socket-binding" type="java.lang.String" value="https"/>
+          <Attribute name="worker" type="java.lang.String" value="undertow"/>
+        </Configuration>
+      </Configuration>
+      <Configuration SelfName="default" SelfType="servlet-container">
+        <Configuration SelfName="jsp" SelfType="setting"/>
+        <Configuration SelfName="session-cookie" SelfType="setting">
+          <Attribute name="http-only" type="java.lang.String" value="true"/>
+          <Attribute name="secure" type="java.lang.String" value="true"/>
+        </Configuration>
+        <Configuration SelfName="websockets" SelfType="setting"/>
+      </Configuration>
+    </Subsystem>
+    <Subsystem SelfName="jca" SelfType="subsystem">
+      <Configuration SelfName="amqcontext" SelfType="bootstrap-context">
+        <Attribute name="name" type="java.lang.String" value="amqcontext"/>
+        <Attribute name="workmanager" type="java.lang.String" value="amqworkmanager"/>
+      </Configuration>
+      <Configuration SelfName="amqworkmanager" SelfType="workmanager">
+        <Attribute name="name" type="java.lang.String" value="amqworkmanager"/>
+        <Configuration SelfName="amqworkmanager" SelfType="long-running-threads">
+          <Attribute name="allow-core-timeout" type="java.lang.String" value="true"/>
+          <Attribute name="core-threads" type="java.lang.String" value="${ph:jca_amq_long_maxThreads}"/>
+          <Attribute name="keepalive-time" type="java.lang.String" value="{&quot;time&quot; => ${ph:jca_amq_long_keepAliveTimeSec},&quot;unit&quot; => &quot;SECONDS&quot;}"/>
+          <Attribute name="max-threads" type="java.lang.String" value="${ph:jca_amq_long_maxThreads}"/>
+          <Attribute name="name" type="java.lang.String" value="amqworkmanager"/>
+          <Attribute name="queue-length" type="java.lang.String" value="${ph:jca_amq_long_queueLength}"/>
+        </Configuration>
+        <Configuration SelfName="amqworkmanager" SelfType="short-running-threads">
+          <Attribute name="allow-core-timeout" type="java.lang.String" value="true"/>
+          <Attribute name="core-threads" type="java.lang.String" value="${ph:jca_amq_short_maxThreads}"/>
+          <Attribute name="keepalive-time" type="java.lang.String" value="{&quot;time&quot; => ${ph:jca_amq_short_keepAliveTimeSec},&quot;unit&quot; => &quot;SECONDS&quot;}"/>
+          <Attribute name="max-threads" type="java.lang.String" value="${ph:jca_amq_short_maxThreads}"/>
+          <Attribute name="name" type="java.lang.String" value="amqworkmanager"/>
+          <Attribute name="queue-length" type="java.lang.String" value="${ph:jca_amq_short_queueLength}"/>
+        </Configuration>
+      </Configuration>
+      <Configuration SelfName="wmqcontext" SelfType="bootstrap-context">
+        <Attribute name="name" type="java.lang.String" value="wmqcontext"/>
+        <Attribute name="workmanager" type="java.lang.String" value="wmqworkmanager"/>
+      </Configuration>
+      <Configuration SelfName="wmqworkmanager" SelfType="workmanager">
+        <Attribute name="name" type="java.lang.String" value="wmqworkmanager"/>
+        <Configuration SelfName="wmqworkmanager" SelfType="long-running-threads">
+          <Attribute name="allow-core-timeout" type="java.lang.String" value="true"/>
+          <Attribute name="core-threads" type="java.lang.String" value="${ph:jca_wmq_long_maxThreads}"/>
+          <Attribute name="keepalive-time" type="java.lang.String" value="{&quot;time&quot; => ${ph:jca_wmq_long_keepAliveTimeSec},&quot;unit&quot; => &quot;SECONDS&quot;}"/>
+          <Attribute name="max-threads" type="java.lang.String" value="${ph:jca_wmq_long_maxThreads}"/>
+          <Attribute name="name" type="java.lang.String" value="wmqworkmanager"/>
+          <Attribute name="queue-length" type="java.lang.String" value="${ph:jca_wmq_long_queueLength}"/>
+        </Configuration>
+        <Configuration SelfName="wmqworkmanager" SelfType="short-running-threads">
+          <Attribute name="allow-core-timeout" type="java.lang.String" value="true"/>
+          <Attribute name="core-threads" type="java.lang.String" value="${ph:jca_wmq_short_maxThreads}"/>
+          <Attribute name="keepalive-time" type="java.lang.String" value="{&quot;time&quot; => ${ph:jca_wmq_short_keepAliveTimeSec},&quot;unit&quot; => &quot;SECONDS&quot;}"/>
+          <Attribute name="max-threads" type="java.lang.String" value="${ph:jca_wmq_short_maxThreads}"/>
+          <Attribute name="name" type="java.lang.String" value="wmqworkmanager"/>
+          <Attribute name="queue-length" type="java.lang.String" value="${ph:jca_wmq_short_queueLength}"/>
+        </Configuration>
+      </Configuration>
+    </Subsystem>
+    <Subsystem SelfName="webservices" SelfType="subsystem">
+      <Attribute name="modify-wsdl-address" type="java.lang.String" value="true"/>
+      <Attribute name="wsdl-host" type="java.lang.String" value="${ph:webservices_host}"/>
+      <Attribute name="wsdl-port" type="java.lang.String" value="${ph:webservices_port}"/>
+      <Attribute name="wsdl-secure-port" type="java.lang.String" value="${ph:webservices_securePort}"/>
+      <Attribute name="wsdl-uri-scheme" type="java.lang.String" value="${ph:webservices_scheme}"/>
+      <Configuration SelfName="myconfig" SelfType="endpoint-config">
+        <Configuration SelfName="set-jaxb-validation-event-handler" SelfType="property">
+          <Attribute name="value" type="java.lang.String" value="false"/>
+        </Configuration>
+      </Configuration>
+      <Configuration SelfName="Standard-Client-Config" SelfType="client-config"/>
+      <Configuration SelfName="Recording-Endpoint-Config" SelfType="endpoint-config">
+        <Configuration SelfName="recording-handlers" SelfType="pre-handler-chain">
+          <Attribute name="protocol-bindings" type="java.lang.String" value="##SOAP11_HTTP ##SOAP11_HTTP_MTOM ##SOAP12_HTTP ##SOAP12_HTTP_MTOM"/>
+          <Configuration SelfName="RecordingHandler" SelfType="handler">
+            <Attribute name="class" type="java.lang.String" value="org.jboss.ws.common.invocation.RecordingServerHandler"/>
+          </Configuration>
+        </Configuration>
+      </Configuration>
+      <Configuration SelfName="Standard-Endpoint-Config" SelfType="endpoint-config"/>
+    </Subsystem>
+  </Profile>
+  <Server-Group SelfName="${ph:serverGroup_name}"
+    profile="${ph:profile_name}" socket-binding-group="${ph:binding_name}">
+    <Jvm SelfName="default"
+      debug-options="${ph:serverGroup_jvm_debugOption}"
+      environment-variables="${ph:serverGroup_jvm_envVariables}"
+      heap-size="${ph:serverGroup_jvm_heapSize}"
+      max-heap-size="${ph:serverGroup_jvm_maxHeapSize}" stack-size="256k">
+      <jvm-options>
+        <option value="-server"/>
+        <option value="-d64"/>
+        <option value="-XX:MetaspaceSize=${ph:serverGroup_jvm_option_metaSize}"/>
+        <option value="-XX:MaxMetaspaceSize=${ph:serverGroup_jvm_option_maxMetaSize}"/>
+        <option value="-XX:+UseParallelOldGC"/>
+        <option value="-XX:+DisableExplicitGC"/>
+        <option value="-XX:+HeapDumpOnOutOfMemoryError"/>
+        <option value="-XX:HeapDumpPath=/cores"/>
+        <option value="-verbose:gc"/>
+        <option value="-XX:+PrintGCDetails"/>
+        <option value="-XX:+PrintGCDateStamps"/>
+        <option value="-XX:+PrintGCTimeStamps"/>
+        <option value="-XX:+PrintGCApplicationConcurrentTime"/>
+        <option value="-XX:+PrintGCApplicationStoppedTime"/>
+        <option value="-XX:+UseGCLogFileRotation"/>
+        <option value="-XX:NumberOfGCLogFiles=${ph:serverGroup_jvm_option_gcLogFileCount}"/>
+        <option value="-XX:GCLogFileSize=${ph:serverGroup_jvm_option_gcLogFileSizeM}"/>
+        <option value="${ph:serverGroup_jvm_option_values_0_value}"/>
+        <option value="${ph:serverGroup_jvm_option_values_1_value}"/>
+      </jvm-options>
+    </Jvm>
+    <System-Property SelfName="javax.net.ssl.keyStore" boot-time="true" value="${ph:serverGroup_systemProp_keystoreFile}"/>
+    <System-Property SelfName="javax.net.ssl.keyStorePassword"
+      boot-time="false" value="${ph:serverGroup_systemProp_keystorePassword}"/>
+    <System-Property SelfName="javax.net.ssl.trustStore"
+      boot-time="true" value="${ph:serverGroup_systemProp_truststoreFile}"/>
+    <System-Property SelfName="javax.net.ssl.trustStorePassword"
+      boot-time="false" value="${ph:serverGroup_systemProp_truststorePassword}"/>
+    <System-Property SelfName="org.jboss.as.logging.per-deployment"
+      boot-time="true" value="false"/>
+    <System-Property SelfName="jboss.modules.metrics" boot-time="true" value="true"/>
+    <System-Property SelfName="user.timezone" boot-time="true" value="US/Eastern"/>
+    <System-Property SelfName="env.name" boot-time="true" value="${ph:serverGroup_systemProp_envName}"/>
+    <System-Property SelfName="CUT_APP_ENV" boot-time="true" value="${ph:serverGroup_systemProp_cutAppEnv}"/>
+    <System-Property
+      SelfName="${ph:serverGroup_systemProp_values_0_key}"
+      boot-time="true" value="${ph:serverGroup_systemProp_values_0_value}"/>
+    <System-Property
+      SelfName="${ph:serverGroup_systemProp_values_1_key}"
+      boot-time="true" value="${ph:serverGroup_systemProp_values_1_value}"/>
+  </Server-Group>
+  <Socket-Binding-Group SelfName="${ph:binding_name}" default-interface="public">
+    <Remote-Destination-Outbound-Socket-Binding
+      SelfName="${ph:binding_outbound_0_name}" fixed-source-port="false"
+      host="${ph:binding_outbound_0_host}" port="${ph:binding_outbound_0_port}"/>
+    <Remote-Destination-Outbound-Socket-Binding
+      SelfName="${ph:binding_outbound_1_name}" fixed-source-port="false"
+      host="${ph:binding_outbound_1_host}" port="${ph:binding_outbound_1_port}"/>
+    <Socket-Binding SelfName="${ph:binding_socket_0_name}"
+      fixed-port="false" port="${ph:binding_socket_0_port}"/>
+    <Socket-Binding SelfName="${ph:binding_socket_1_name}"
+      fixed-port="false" port="${ph:binding_socket_1_port}"/>
+  </Socket-Binding-Group>
+  <Multi-Server-Creation-Config auto-start="true"
+    name="${ph:serverConfig_serverName}"
+    numberOfInstance="${ph:serverConfig_serverPerHost}"
+    serverGroup="${ph:serverGroup_name}"
+    socket-binding-group="${ph:binding_name}"
+    socket-binding-port-offset="${ph:serverConfig_socketPortOffset}"
+    startIndex="${ph:serverConfig_startIndex}" status="STARTED" targetedHostList="${ph:serverConfig_hostList}">
+    <Jvm SelfName="${ph:serverConfig_serverName}">
+      <jvm-options>
+        <option value="${ph:serverConfig_jvm_option_values_0_value}"/>
+      </jvm-options>
+    </Jvm>
+    <System-Property
+      SelfName="${ph:serverConfig_systemProp_values_0_key}"
+      boot-time="true" value="${ph:serverConfig_systemProp_values_0_value}"/>
+    <System-Property
+      SelfName="${ph:serverConfig_systemProp_values_1_key}"
+      boot-time="true" value="${ph:serverConfig_systemProp_values_1_value}"/>
+  </Multi-Server-Creation-Config>
+</Phurnace>
