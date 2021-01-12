@@ -12,4 +12,177 @@
     TempDir="/tmp" User="admin"/>
   <ConnectionType Protocol="RMI"/>
   <TrustStore useRetrieveSigners="true"/>
+  <TokenSet Description="" Name="Jboss21Master-12">
+    <Token BMAVersion="4.7.0" Encrypt="false" Key="profile_name"
+      OriginalBMAVersion="4.7.0" Value="myFull"/>
+    <Token BMAVersion="4.7.0" Encrypt="false" Key="profile_cloneFrom"
+      OriginalBMAVersion="4.7.0" Value="full"/>
+    <Token BMAVersion="4.7.0" Encrypt="false" Key="serverGroup_name"
+      OriginalBMAVersion="4.7.0" Value="servergroup1"/>
+    <Token BMAVersion="4.7.0" Encrypt="false"
+      Key="serverGroup_jvm_heapSize" OriginalBMAVersion="4.7.0" Value="256m"/>
+    <Token BMAVersion="4.7.0" Encrypt="false"
+      Key="serverGroup_jvm_maxHeapSize" OriginalBMAVersion="4.7.0" Value="512m"/>
+    <Token BMAVersion="4.7.0" Encrypt="false"
+      Key="serverGroup_jvm_debugOption" OriginalBMAVersion="4.7.0" Value="true"/>
+    <Token BMAVersion="4.7.0" Encrypt="false"
+      Key="serverGroup_jvm_option_metaSize" OriginalBMAVersion="4.7.0" Value="256m"/>
+    <Token BMAVersion="4.7.0" Encrypt="false"
+      Key="serverGroup_jvm_option_maxMetaSize"
+      OriginalBMAVersion="4.7.0" Value="512m"/>
+    <Token BMAVersion="4.7.0" Encrypt="false"
+      Key="serverGroup_jvm_option_parallelOldGC"
+      OriginalBMAVersion="4.7.0" Value="true"/>
+    <Token BMAVersion="4.7.0" Encrypt="false"
+      Key="serverGroup_jvm_option_gcLogFileCount"
+      OriginalBMAVersion="4.7.0" Value="4"/>
+    <Token BMAVersion="4.7.0" Encrypt="false"
+      Key="serverGroup_jvm_option_gcLogFileSizeM"
+      OriginalBMAVersion="4.7.0" Value="100M"/>
+    <Token BMAVersion="4.7.0" Encrypt="false"
+      Key="serverGroup_jvm_option_values_0_value"
+      OriginalBMAVersion="4.7.0" Value="-Dlog.format.xml=true"/>
+    <Token BMAVersion="4.7.0" Encrypt="false"
+      Key="serverGroup_jvm_option_values_1_value"
+      OriginalBMAVersion="4.7.0" Value="--add-exports=java.base/sun.nio.ch=ALL-UNNAMED"/>
+    <Token BMAVersion="4.7.0" Encrypt="false"
+      Key="serverGroup_systemProp_keystoreFile"
+      OriginalBMAVersion="4.7.0" Value="keys.jks"/>
+    <Token BMAVersion="4.7.0" Encrypt="false"
+      Key="serverGroup_systemProp_keystorePassword"
+      OriginalBMAVersion="4.7.0" Value="{PHE1}0MvykvczHIphk+U6qi8g1g=="/>
+    <Token BMAVersion="4.7.0" Encrypt="false"
+      Key="serverGroup_systemProp_truststoreFile"
+      OriginalBMAVersion="4.7.0" Value="truststore_client"/>
+    <Token BMAVersion="4.7.0" Encrypt="false"
+      Key="serverGroup_systemProp_truststorePassword"
+      OriginalBMAVersion="4.7.0" Value="{PHE1}0MvykvczHIphk+U6qi8g1g=="/>
+    <Token BMAVersion="4.7.0" Encrypt="false"
+      Key="serverGroup_systemProp_envName" OriginalBMAVersion="4.7.0" Value="sgLab"/>
+    <Token BMAVersion="4.7.0" Encrypt="false"
+      Key="serverGroup_systemProp_cutAppEnv" OriginalBMAVersion="4.7.0" Value="myEnv"/>
+    <Token BMAVersion="4.7.0" Encrypt="false"
+      Key="serverGroup_systemProp_values_0_key"
+      OriginalBMAVersion="4.7.0" Value="smtp.host"/>
+    <Token BMAVersion="4.7.0" Encrypt="false"
+      Key="serverGroup_systemProp_values_0_value"
+      OriginalBMAVersion="4.7.0" Value="testserver"/>
+    <Token BMAVersion="4.7.0" Encrypt="false"
+      Key="serverGroup_systemProp_values_1_key"
+      OriginalBMAVersion="4.7.0" Value="smtp.port"/>
+    <Token BMAVersion="4.7.0" Encrypt="false"
+      Key="serverGroup_systemProp_values_1_value"
+      OriginalBMAVersion="4.7.0" Value="25"/>
+    <Token BMAVersion="4.7.0" Encrypt="false" Key="binding_name"
+      OriginalBMAVersion="4.7.0" Value="full-sockets"/>
+    <Token BMAVersion="4.7.0" Encrypt="false"
+      Key="binding_outbound_0_name" OriginalBMAVersion="4.7.0" Value="dcs"/>
+    <Token BMAVersion="4.7.0" Encrypt="false"
+      Key="binding_outbound_0_host" OriginalBMAVersion="4.7.0" Value="webhost3"/>
+    <Token BMAVersion="4.7.0" Encrypt="false"
+      Key="binding_outbound_0_port" OriginalBMAVersion="4.7.0" Value="7276"/>
+    <Token BMAVersion="4.7.0" Encrypt="false"
+      Key="binding_outbound_1_name" OriginalBMAVersion="4.7.0" Value="dcs2"/>
+    <Token BMAVersion="4.7.0" Encrypt="false"
+      Key="binding_outbound_1_host" OriginalBMAVersion="4.7.0" Value="webhost4"/>
+    <Token BMAVersion="4.7.0" Encrypt="false"
+      Key="binding_outbound_1_port" OriginalBMAVersion="4.7.0" Value="7286"/>
+    <Token BMAVersion="4.7.0" Encrypt="false"
+      Key="binding_socket_0_name" OriginalBMAVersion="4.7.0" Value="http"/>
+    <Token BMAVersion="4.7.0" Encrypt="false"
+      Key="binding_socket_0_port" OriginalBMAVersion="4.7.0" Value="8082"/>
+    <Token BMAVersion="4.7.0" Encrypt="false"
+      Key="binding_socket_1_name" OriginalBMAVersion="4.7.0" Value="https"/>
+    <Token BMAVersion="4.7.0" Encrypt="false"
+      Key="binding_socket_1_port" OriginalBMAVersion="4.7.0" Value="8445"/>
+    <Token BMAVersion="4.7.0" Encrypt="false"
+      Key="serverConfig_serverName" OriginalBMAVersion="4.7.0" Value="Server%i"/>
+    <Token BMAVersion="4.7.0" Encrypt="false"
+      Key="serverConfig_hostList" OriginalBMAVersion="4.7.0" Value="localhost"/>
+    <Token BMAVersion="4.7.0" Encrypt="false"
+      Key="serverConfig_startIndex" OriginalBMAVersion="4.7.0" Value="5"/>
+    <Token BMAVersion="4.7.0" Encrypt="false"
+      Key="serverConfig_serverPerHost" OriginalBMAVersion="4.7.0" Value="3"/>
+    <Token BMAVersion="4.7.0" Encrypt="false"
+      Key="serverConfig_socketPortOffset" OriginalBMAVersion="4.7.0" Value="5823"/>
+    <Token BMAVersion="4.7.0" Encrypt="false"
+      Key="serverConfig_jvm_option_values_0_value"
+      OriginalBMAVersion="4.7.0" Value="-Dlog.format.xml=true"/>
+    <Token BMAVersion="4.7.0" Encrypt="false"
+      Key="serverConfig_systemProp_values_0_key"
+      OriginalBMAVersion="4.7.0" Value="smtp.host"/>
+    <Token BMAVersion="4.7.0" Encrypt="false"
+      Key="serverConfig_systemProp_values_0_value"
+      OriginalBMAVersion="4.7.0" Value="testserver"/>
+    <Token BMAVersion="4.7.0" Encrypt="false"
+      Key="serverConfig_systemProp_values_1_key"
+      OriginalBMAVersion="4.7.0" Value="smtp.port"/>
+    <Token BMAVersion="4.7.0" Encrypt="false"
+      Key="serverConfig_systemProp_values_1_value"
+      OriginalBMAVersion="4.7.0" Value="25"/>
+    <Token BMAVersion="4.7.0" Encrypt="false"
+      Key="datasource_dspool_0_name" OriginalBMAVersion="4.7.0" Value="Oracle-pool"/>
+    <Token BMAVersion="4.7.0" Encrypt="false"
+      Key="datasource_dspool_0_driverName" OriginalBMAVersion="4.7.0" Value="OracleDriver"/>
+    <Token BMAVersion="4.7.0" Encrypt="false"
+      Key="datasource_dspool_0_driverType" OriginalBMAVersion="4.7.0" Value="oracle"/>
+    <Token BMAVersion="4.7.0" Encrypt="false"
+      Key="datasource_dspool_0_validSql" OriginalBMAVersion="4.7.0" Value="select 1 from dual"/>
+    <Token BMAVersion="4.7.0" Encrypt="false"
+      Key="datasource_dspool_0_connUrl" OriginalBMAVersion="4.7.0" Value="jdbc:oracle:thin:@localhost:1521:invdb"/>
+    <Token BMAVersion="4.7.0" Encrypt="false"
+      Key="datasource_dspool_0_jndiName" OriginalBMAVersion="4.7.0" Value="jndi:myorcldb"/>
+    <Token BMAVersion="4.7.0" Encrypt="false"
+      Key="datasource_dspool_0_maxPool" OriginalBMAVersion="4.7.0" Value="15"/>
+    <Token BMAVersion="4.7.0" Encrypt="false"
+      Key="datasource_dspool_0_minPool" OriginalBMAVersion="4.7.0" Value="5"/>
+    <Token BMAVersion="4.7.0" Encrypt="false"
+      Key="datasource_dspool_0_idleTimeoutMin"
+      OriginalBMAVersion="4.7.0" Value="5"/>
+    <Token BMAVersion="4.7.0" Encrypt="false"
+      Key="datasource_dspool_0_blockTimeoutMs"
+      OriginalBMAVersion="4.7.0" Value="10000"/>
+    <Token BMAVersion="4.7.0" Encrypt="false"
+      Key="datasource_dspool_0_flushStrategy" OriginalBMAVersion="4.7.0" Value="EntirePool"/>
+    <Token BMAVersion="4.7.0" Encrypt="false"
+      Key="datasource_dspool_0_username" OriginalBMAVersion="4.7.0" Value="mdeliver"/>
+    <Token BMAVersion="4.7.0" Encrypt="false"
+      Key="datasource_dspool_0_password" OriginalBMAVersion="4.7.0" Value="{PHE1}QTXLiJyvrLlunY+DaD1jnQ=="/>
+    <Token BMAVersion="4.7.0" Encrypt="false"
+      Key="datasource_driver_0_name" OriginalBMAVersion="4.7.0" Value="OracleDriver"/>
+    <Token BMAVersion="4.7.0" Encrypt="false"
+      Key="datasource_driver_0_type" OriginalBMAVersion="4.7.0" Value="oracle"/>
+    <Token BMAVersion="4.7.0" Encrypt="false"
+      Key="datasource_driver_0_moduleName" OriginalBMAVersion="4.7.0" Value="jdbcdriver.oracle12_1_0_2"/>
+    <Token BMAVersion="4.7.0" Encrypt="false" Key="io_threads"
+      OriginalBMAVersion="4.7.0" Value="10"/>
+    <Token BMAVersion="4.7.0" Encrypt="false" Key="io_httpMaxThreads"
+      OriginalBMAVersion="4.7.0" Value="50"/>
+    <Token BMAVersion="4.7.0" Encrypt="false" Key="modcluster_proxyName"
+      OriginalBMAVersion="4.7.0" Value="dcs"/>
+    <Token BMAVersion="4.7.0" Encrypt="false" Key="modcluster_proxyUrl"
+      OriginalBMAVersion="4.7.0" Value="/dcs"/>
+    <Token BMAVersion="4.7.0" Encrypt="false" Key="modcluster_proxies"
+      OriginalBMAVersion="4.7.0" Value="[&quot;dcs&quot;,&quot;dcs2&quot;]"/>
+    <Token BMAVersion="4.7.0" Encrypt="false" Key="modcluster_connector"
+      OriginalBMAVersion="4.7.0" Value="https-listener"/>
+    <Token BMAVersion="4.7.0" Encrypt="false"
+      Key="elytron_keystore_algorithm" OriginalBMAVersion="4.7.0" Value="SunX509"/>
+    <Token BMAVersion="4.7.0" Encrypt="false"
+      Key="elytron_keystore_credential" OriginalBMAVersion="4.7.0" Value="MASK-0P/57779hhh/"/>
+    <Token BMAVersion="4.7.0" Encrypt="false"
+      Key="elytron_truststore_credential" OriginalBMAVersion="4.7.0" Value="MASK-0P/57779hhh /"/>
+    <Token BMAVersion="4.7.0" Encrypt="false" Key="naming_bindingName"
+      OriginalBMAVersion="4.7.0" Value="java:/cut/encrypt/key"/>
+    <Token BMAVersion="4.7.0" Encrypt="false" Key="naming_bindingValue"
+      OriginalBMAVersion="4.7.0" Value="myValue"/>
+    <Token BMAVersion="4.7.0" Encrypt="false" Key="webservices_host"
+      OriginalBMAVersion="4.7.0" Value="host12"/>
+    <Token BMAVersion="4.7.0" Encrypt="false" Key="webservices_port"
+      OriginalBMAVersion="4.7.0" Value="38080"/>
+    <Token BMAVersion="4.7.0" Encrypt="false"
+      Key="webservices_securePort" OriginalBMAVersion="4.7.0" Value="38443"/>
+    <Token BMAVersion="4.7.0" Encrypt="false" Key="webservices_scheme"
+      OriginalBMAVersion="4.7.0" Value="https"/>
+  </TokenSet>
 </Server>
