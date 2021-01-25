@@ -47,7 +47,8 @@
         <Attribute name="user-name" type="java.lang.String" value="${ph:datasource_dspool_1_username}"/>
         <Attribute name="validate-on-match" type="java.lang.String" value="true"/>
       </Configuration>
-      <Configuration SelfName="${ph:datasource_dspool_2_name}" SelfType="data-source">
+      <Configuration Delete="true"
+        SelfName="${ph:datasource_dspool_2_name}" SelfType="data-source">
         <Attribute name="background-validation" type="java.lang.String" value="false"/>
         <Attribute name="enabled" type="java.lang.String" value="true"/>
         <Attribute name="exception-sorter-class-name"
@@ -84,7 +85,8 @@
         <Attribute name="driver-xa-datasource-class-name"
           type="java.lang.String" value="com.ibm.optim.connect.jdbc.NvDataSource"/>
       </Configuration>
-      <Configuration SelfName="${ph:datasource_driver_2_name}" SelfType="jdbc-driver">
+      <Configuration Delete="true"
+        SelfName="${ph:datasource_driver_2_name}" SelfType="jdbc-driver">
         <Attribute name="driver-module-name" type="java.lang.String" value="${ph:datasource_driver_2_moduleName}"/>
         <Attribute name="driver-name" type="java.lang.String" value="${ph:datasource_driver_2_name}"/>
         <Attribute name="driver-xa-datasource-class-name"
@@ -97,22 +99,10 @@
         <Attribute name="level" type="java.lang.String" value="${ph:logging_console_level}"/>
         <Attribute name="name" type="java.lang.String" value="CONSOLE"/>
       </Configuration>
-      <Configuration SelfName="${ph:logging_logger_0_name}" SelfType="logger">
+      <Configuration Delete="true"
+        SelfName="${ph:logging_logger_0_name}" SelfType="logger">
         <Attribute name="category" type="java.lang.String" value="${ph:logging_logger_0_name}"/>
         <Attribute name="level" type="java.lang.String" value="${ph:logging_logger_0_level}"/>
-      </Configuration>
-      <Configuration SelfName="${ph:logging_pattern_0_name}" SelfType="pattern-formatter">
-        <Attribute name="pattern" type="java.lang.String" value="${ph:logging_pattern_0_pattern}"/>
-      </Configuration>
-      <Configuration SelfName="SPLUNK_FILE" SelfType="logger">
-        <Attribute name="handlers" type="java.lang.String" value="[&quot;SPLUNK_FILE_HANDLER&quot;]"/>
-        <Attribute name="level" type="java.lang.String" value="${ph:logging_handler_splunkFile_level}"/>
-      </Configuration>
-      <Configuration SelfName="SPLUNK_FILE_HANDLER" SelfType="periodic-rotating-file-handler">
-        <Attribute name="append" type="java.lang.String" value="true"/>
-        <Attribute name="file" type="java.lang.String" value="{&quot;relative-to&quot; => &quot;jboss.server.log.dir&quot;,&quot;path&quot; => &quot;txn-trace.log&quot;}"/>
-        <Attribute name="formatter" type="java.lang.String" value="%s%E%n"/>
-        <Attribute name="suffix" type="java.lang.String" value=".yyyy-MM-dd"/>
       </Configuration>
       <Configuration SelfName="FILE" SelfType="periodic-rotating-file-handler">
         <Attribute name="append" type="java.lang.String" value="true"/>
@@ -175,23 +165,6 @@
       </Configuration>
     </Subsystem>
     <Subsystem SelfName="resource-adapters" SelfType="subsystem">
-      <Configuration SelfName="${ph:rar_amq_name}" SelfType="resource-adapter">
-        <Attribute name="archive" type="java.lang.String" value="${ph:rar_amq_name}"/>
-        <Attribute name="bootstrap-context" type="java.lang.String" value="amqcontext"/>
-        <Attribute name="transaction-support" type="java.lang.String" value="XATransaction"/>
-        <Configuration SelfName="ServerUrl" SelfType="config-properties">
-          <Attribute name="value" type="java.lang.String" value="${ph:rar_amq_config_serverUrl}"/>
-        </Configuration>
-        <Configuration SelfName="${ph:rar_amq_connDef_0_jndi}" SelfType="connection-definitions">
-          <Attribute name="background-validation"
-            type="java.lang.String" value="false"/>
-          <Attribute name="class-name" type="java.lang.String" value="org.apache.activemq.ra.ActiveMQManagedConnectionFactory"/>
-          <Attribute name="enabled" type="java.lang.String" value="false"/>
-          <Attribute name="jndi-name" type="java.lang.String" value="${ph:rar_amq_connDef_0_jndi}"/>
-          <Attribute name="min-pool-size" type="java.lang.String" value="${ph:rar_amq_connDef_0_minPool}"/>
-          <Attribute name="security-application" type="java.lang.String" value="true"/>
-        </Configuration>
-      </Configuration>
       <Configuration SelfName="${ph:rar_wmq_name}" SelfType="resource-adapter">
         <Attribute name="archive" type="java.lang.String" value="${ph:rar_wmq_name}"/>
         <Attribute name="bootstrap-context" type="java.lang.String" value="wmqcontext"/>
@@ -248,10 +221,6 @@
     <Subsystem SelfName="undertow" SelfType="subsystem">
       <Configuration SelfName="default" SelfType="buffer-cache"/>
       <Configuration SelfName="filter" SelfType="configuration">
-        <Configuration SelfName="hsts-header" SelfType="response-header">
-          <Attribute name="header-name" type="java.lang.String" value="Strict-Transport-Security"/>
-          <Attribute name="header-value" type="java.lang.String" value="max-age=31536000"/>
-        </Configuration>
         <Configuration SelfName="server-header" SelfType="response-header">
           <Attribute name="header-name" type="java.lang.String" value="Server"/>
           <Attribute name="header-value" type="java.lang.String" value="HIDDEN"/>
@@ -269,7 +238,6 @@
       <Configuration SelfName="default-server" SelfType="server">
         <Configuration SelfName="default-host" SelfType="host">
           <Attribute name="alias" type="java.lang.String" value="[&quot;localhost&quot;]"/>
-          <Configuration SelfName="hsts-header" SelfType="filter-ref"/>
           <Configuration SelfName="server-header" SelfType="filter-ref"/>
           <Configuration SelfName="x-powered-by-header" SelfType="filter-ref"/>
           <Configuration SelfName="single-sign-on" SelfType="setting">
@@ -277,12 +245,7 @@
             <Attribute name="secure" type="java.lang.String" value="true"/>
           </Configuration>
         </Configuration>
-        <Configuration SelfName="ajp" SelfType="ajp-listener">
-          <Attribute name="record-request-start-time"
-            type="java.lang.String" value="true"/>
-          <Attribute name="socket-binding" type="java.lang.String" value="ajp"/>
-        </Configuration>
-        <Configuration SelfName="http" SelfType="http-listener">
+        <Configuration Delete="true" SelfName="http" SelfType="http-listener">
           <Attribute name="record-request-start-time"
             type="java.lang.String" value="true"/>
           <Attribute name="socket-binding" type="java.lang.String" value="http"/>
@@ -306,30 +269,7 @@
         <Configuration SelfName="websockets" SelfType="setting"/>
       </Configuration>
     </Subsystem>
-    <Subsystem SelfName="jca" SelfType="subsystem">
-      <Configuration SelfName="amqcontext" SelfType="bootstrap-context">
-        <Attribute name="name" type="java.lang.String" value="amqcontext"/>
-        <Attribute name="workmanager" type="java.lang.String" value="amqworkmanager"/>
-      </Configuration>
-      <Configuration SelfName="amqworkmanager" SelfType="workmanager">
-        <Attribute name="name" type="java.lang.String" value="amqworkmanager"/>
-        <Configuration SelfName="amqworkmanager" SelfType="long-running-threads">
-          <Attribute name="allow-core-timeout" type="java.lang.String" value="true"/>
-          <Attribute name="core-threads" type="java.lang.String" value="${ph:jca_amq_long_maxThreads}"/>
-          <Attribute name="keepalive-time" type="java.lang.String" value="{&quot;time&quot; => ${ph:jca_amq_long_keepAliveTimeSec},&quot;unit&quot; => &quot;SECONDS&quot;}"/>
-          <Attribute name="max-threads" type="java.lang.String" value="${ph:jca_amq_long_maxThreads}"/>
-          <Attribute name="name" type="java.lang.String" value="amqworkmanager"/>
-          <Attribute name="queue-length" type="java.lang.String" value="${ph:jca_amq_long_queueLength}"/>
-        </Configuration>
-        <Configuration SelfName="amqworkmanager" SelfType="short-running-threads">
-          <Attribute name="allow-core-timeout" type="java.lang.String" value="true"/>
-          <Attribute name="core-threads" type="java.lang.String" value="${ph:jca_amq_short_maxThreads}"/>
-          <Attribute name="keepalive-time" type="java.lang.String" value="{&quot;time&quot; => ${ph:jca_amq_short_keepAliveTimeSec},&quot;unit&quot; => &quot;SECONDS&quot;}"/>
-          <Attribute name="max-threads" type="java.lang.String" value="${ph:jca_amq_short_maxThreads}"/>
-          <Attribute name="name" type="java.lang.String" value="amqworkmanager"/>
-          <Attribute name="queue-length" type="java.lang.String" value="${ph:jca_amq_short_queueLength}"/>
-        </Configuration>
-      </Configuration>
+    <Subsystem Delete="true" SelfName="jca" SelfType="subsystem">
       <Configuration SelfName="wmqcontext" SelfType="bootstrap-context">
         <Attribute name="name" type="java.lang.String" value="wmqcontext"/>
         <Attribute name="workmanager" type="java.lang.String" value="wmqworkmanager"/>
@@ -377,7 +317,7 @@
       <Configuration SelfName="Standard-Endpoint-Config" SelfType="endpoint-config"/>
     </Subsystem>
   </Profile>
-  <Server-Group SelfName="${ph:serverGroup_name}"
+  <Server-Group Delete="true" SelfName="${ph:serverGroup_name}"
     profile="${ph:profile_name}" socket-binding-group="${ph:binding_name}">
     <Jvm SelfName="default"
       debug-options="${ph:serverGroup_jvm_debugOption}"
@@ -402,8 +342,6 @@
         <option value="-XX:+UseGCLogFileRotation"/>
         <option value="-XX:NumberOfGCLogFiles=${ph:serverGroup_jvm_option_gcLogFileCount}"/>
         <option value="-XX:GCLogFileSize=${ph:serverGroup_jvm_option_gcLogFileSizeM}"/>
-        <option value="${ph:serverGroup_jvm_option_values_0_value}"/>
-        <option value="${ph:serverGroup_jvm_option_values_1_value}"/>
       </jvm-options>
     </Jvm>
     <System-Property SelfName="javax.net.ssl.keyStore" boot-time="true" value="${ph:serverGroup_systemProp_keystoreFile}"/>
@@ -419,24 +357,14 @@
     <System-Property SelfName="user.timezone" boot-time="true" value="US/Eastern"/>
     <System-Property SelfName="env.name" boot-time="true" value="${ph:serverGroup_systemProp_envName}"/>
     <System-Property SelfName="CUT_APP_ENV" boot-time="true" value="${ph:serverGroup_systemProp_cutAppEnv}"/>
-    <System-Property
-      SelfName="${ph:serverGroup_systemProp_values_0_key}"
-      boot-time="true" value="${ph:serverGroup_systemProp_values_0_value}"/>
-    <System-Property
-      SelfName="${ph:serverGroup_systemProp_values_1_key}"
-      boot-time="true" value="${ph:serverGroup_systemProp_values_1_value}"/>
   </Server-Group>
-  <Socket-Binding-Group SelfName="${ph:binding_name}" default-interface="public">
-    <Remote-Destination-Outbound-Socket-Binding
+  <Socket-Binding-Group Delete="true" SelfName="${ph:binding_name}" default-interface="public">
+    <Remote-Destination-Outbound-Socket-Binding Delete="true"
       SelfName="${ph:binding_outbound_0_name}" fixed-source-port="false"
       host="${ph:binding_outbound_0_host}" port="${ph:binding_outbound_0_port}"/>
-    <Remote-Destination-Outbound-Socket-Binding
+    <Remote-Destination-Outbound-Socket-Binding Delete="true"
       SelfName="${ph:binding_outbound_1_name}" fixed-source-port="false"
       host="${ph:binding_outbound_1_host}" port="${ph:binding_outbound_1_port}"/>
-    <Socket-Binding SelfName="${ph:binding_socket_0_name}"
-      fixed-port="false" port="${ph:binding_socket_0_port}"/>
-    <Socket-Binding SelfName="${ph:binding_socket_1_name}"
-      fixed-port="false" port="${ph:binding_socket_1_port}"/>
   </Socket-Binding-Group>
   <Multi-Server-Creation-Config auto-start="true"
     name="${ph:serverConfig_serverName}"
@@ -445,12 +373,7 @@
     socket-binding-group="${ph:binding_name}"
     socket-binding-port-offset="${ph:serverConfig_socketPortOffset}"
     startIndex="${ph:serverConfig_startIndex}" status="STARTED" targetedHostList="${ph:serverConfig_hostList}">
-    <Jvm SelfName="${ph:serverConfig_serverName}">
-      <jvm-options>
-        <option value="${ph:serverConfig_jvm_option_values_0_value}"/>
-      </jvm-options>
-    </Jvm>
-    <System-Property
+    <System-Property Delete="true"
       SelfName="${ph:serverConfig_systemProp_values_0_key}"
       boot-time="true" value="${ph:serverConfig_systemProp_values_0_value}"/>
     <System-Property
