@@ -80,7 +80,7 @@
     <Token BMAVersion="4.7.0" Encrypt="false"
       Key="serverConfig_serverName" OriginalBMAVersion="4.7.0" Value="U01-A0%i-DTEUI-%H"/>
     <Token BMAVersion="4.7.0" Encrypt="false"
-      Key="serverConfig_hostList" OriginalBMAVersion="4.7.0" Value="Host-1, Host-2"/>
+      Key="serverConfig_hostList" OriginalBMAVersion="4.7.0" Value="hostOne"/>
     <Token BMAVersion="4.7.0" Encrypt="false"
       Key="serverConfig_startIndex" OriginalBMAVersion="4.7.0" Value="1"/>
     <Token BMAVersion="4.7.0" Encrypt="false"
