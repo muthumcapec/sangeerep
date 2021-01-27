@@ -31,6 +31,33 @@
         <Attribute name="user-name" type="java.lang.String" value="${ph:datasource_dspool_0_username}"/>
         <Attribute name="validate-on-match" type="java.lang.String" value="true"/>
       </Configuration>
+      <Configuration SelfName="${ph:datasource_dspool_1_name}" SelfType="data-source">
+        <Attribute name="background-validation" type="java.lang.String" value="false"/>
+        <Attribute name="blocking-timeout-wait-millis"
+          type="java.lang.String" value="${ph:datasource_dspool_1_blockTimeoutMs}"/>
+        <Attribute name="check-valid-connection-sql"
+          type="java.lang.String" value="select 1 from dual"/>
+        <Attribute name="driver-class" type="java.lang.String" value="oracle.jdbc.driver.OracleDriver"/>
+        <Attribute name="exception-sorter-class-name"
+          type="java.lang.String" value="org.jboss.jca.adapters.jdbc.extensions.oracle.OracleExceptionSorter"/>
+        <Attribute name="flush-strategy" type="java.lang.String" value="${ph:datasource_dspool_1_flushStrategy}"/>
+        <Attribute name="stale-connection-checker-class-name"
+          type="java.lang.String" value="org.jboss.jca.adapters.jdbc.extensions.oracle.OracleStaleConnectionChecker"/>
+        <Attribute name="valid-connection-checker-class-name"
+          type="java.lang.String" value="org.jboss.jca.adapters.jdbc.extensions.oracle.OracleValidConnectionChecker"/>
+        <Attribute name="pool-prefill" type="java.lang.String" value="true"/>
+        <Attribute name="pool-use-strict-min" type="java.lang.String" value="true"/>
+        <Attribute name="statistics-enabled" type="java.lang.String" value="true"/>
+        <Attribute name="connection-url" type="java.lang.String" value="${ph:datasource_dspool_1_connUrl}"/>
+        <Attribute name="driver-name" type="java.lang.String" value="${ph:datasource_dspool_1_driverName}"/>
+        <Attribute name="idle-timeout-minutes" type="java.lang.String" value="${ph:datasource_dspool_1_idleTimeoutMin}"/>
+        <Attribute name="jndi-name" type="java.lang.String" value="${ph:datasource_dspool_1_jndiName}"/>
+        <Attribute name="max-pool-size" type="java.lang.String" value="${ph:datasource_dspool_1_maxPool}"/>
+        <Attribute name="min-pool-size" type="java.lang.String" value="${ph:datasource_dspool_1_minPool}"/>
+        <Attribute name="password" type="java.lang.String" value="${ph:datasource_dspool_1_password}"/>
+        <Attribute name="user-name" type="java.lang.String" value="${ph:datasource_dspool_1_username}"/>
+        <Attribute name="validate-on-match" type="java.lang.String" value="true"/>
+      </Configuration>
       <Configuration SelfName="${ph:datasource_driver_0_name}" SelfType="jdbc-driver">
         <Attribute name="driver-module-name" type="java.lang.String" value="${ph:datasource_driver_0_moduleName}"/>
         <Attribute name="driver-name" type="java.lang.String" value="${ph:datasource_driver_0_name}"/>
