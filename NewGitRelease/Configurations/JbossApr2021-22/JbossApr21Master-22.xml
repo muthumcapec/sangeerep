@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Phurnace BMAVersion="4.7.0" OriginalBMAVersion="4.7.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.phurnace.com/schemas/jbosseap72">
+  <Profile SelfName="${ph:profile_name}"
+    cloneFrom="${ph:profile_cloneFrom}" name="${ph:profile_name}">
+    <Subsystem SelfName="io" SelfType="subsystem">
+      <Configuration SelfName="default" SelfType="buffer-pool"/>
+      <Configuration SelfName="default" SelfType="worker"/>
+      <Configuration SelfName="undertow" SelfType="worker">
+        <Attribute name="io-threads" type="java.lang.String" value="${ph:io_threads}"/>
+        <Attribute name="task-max-threads" type="java.lang.String" value="${ph:io_httpMaxThreads}"/>
+      </Configuration>
+    </Subsystem>
+    <Subsystem SelfName="modcluster" SelfType="subsystem">
+      <Configuration SelfName="${ph:modcluster_proxyName}" SelfType="proxy">
+        <Attribute name="advertise" type="java.lang.String" value="false"/>
+        <Attribute name="connector" type="java.lang.String" value="${ph:modcluster_connector}"/>
+        <Attribute name="listener" type="java.lang.String" value="${ph:modcluster_connector}"/>
+        <Attribute name="proxy-url" type="java.lang.String" value="${ph:modcluster_proxyUrl}"/>
+        <Attribute name="ssl-context" type="java.lang.String" value="modcluster-ssl-context"/>
+        <Attribute name="proxies" type="java.lang.String" value="${ph:modcluster_proxies}"/>
+        <Configuration SelfName="dynamic" SelfType="load-provider">
+          <Configuration SelfName="busyness" SelfType="load-metric">
+            <Attribute name="type" type="java.lang.String" value="busyness"/>
+          </Configuration>
+        </Configuration>
+      </Configuration>
+    </Subsystem>
+    <Subsystem SelfName="naming" SelfType="subsystem">
+      <Configuration SelfName="${ph:naming_bindingName}" SelfType="binding">
+        <Attribute name="binding-type" type="java.lang.String" value="simple"/>
+        <Attribute name="value" type="java.lang.String" value="${ph:naming_bindingValue}"/>
+      </Configuration>
+    </Subsystem>
+    <Subsystem SelfName="undertow" SelfType="subsystem">
+      <Configuration SelfName="default" SelfType="buffer-cache"/>
+      <Configuration SelfName="filter" SelfType="configuration">
+        <Configuration SelfName="server-header" SelfType="response-header">
+          <Attribute name="header-name" type="java.lang.String" value="Server"/>
+          <Attribute name="header-value" type="java.lang.String" value="HIDDEN"/>
+        </Configuration>
+        <Configuration SelfName="x-powered-by-header" SelfType="response-header">
+          <Attribute name="header-name" type="java.lang.String" value="X-Powered-By"/>
+          <Attribute name="header-value" type="java.lang.String" value="HIDDEN"/>
+        </Configuration>
+      </Configuration>
+      <Configuration SelfName="handler" SelfType="configuration">
+        <Configuration SelfName="welcome-content" SelfType="file">
+          <Attribute name="path" type="java.lang.String" value="${jboss.home.dir}/welcome-content"/>
+        </Configuration>
+      </Configuration>
+      <Configuration SelfName="default-server" SelfType="server">
+        <Configuration SelfName="default-host" SelfType="host">
+          <Attribute name="alias" type="java.lang.String" value="[&quot;localhost&quot;]"/>
+          <Configuration SelfName="server-header" SelfType="filter-ref"/>
+          <Configuration SelfName="x-powered-by-header" SelfType="filter-ref"/>
+          <Configuration SelfName="single-sign-on" SelfType="setting">
+            <Attribute name="http-only" type="java.lang.String" value="true"/>
+            <Attribute name="secure" type="java.lang.String" value="true"/>
+          </Configuration>
+        </Configuration>
+        <Configuration SelfName="https-listener" SelfType="https-listener">
+          <Attribute name="enabled-cipher-suites"
+            type="java.lang.String" value="${ph:undertow_server_https_cipherSuite}"/>
+          <Attribute name="enabled-protocols" type="java.lang.String" value="${ph:undertow_server_https_protocol}"/>
+          <Attribute name="max-connections" type="java.lang.String" value="${ph:io_httpMaxThreads}"/>
+          <Attribute name="security-realm" type="java.lang.String" value="UndertowSSLRealm"/>
+          <Attribute name="socket-binding" type="java.lang.String" value="https"/>
+          <Attribute name="worker" type="java.lang.String" value="undertow"/>
+        </Configuration>
+      </Configuration>
+      <Configuration SelfName="default" SelfType="servlet-container">
+        <Configuration SelfName="jsp" SelfType="setting"/>
+        <Configuration SelfName="session-cookie" SelfType="setting">
+          <Attribute name="http-only" type="java.lang.String" value="true"/>
+          <Attribute name="secure" type="java.lang.String" value="true"/>
+        </Configuration>
+        <Configuration SelfName="websockets" SelfType="setting"/>
+      </Configuration>
+    </Subsystem>
+  </Profile>
+  <Server-Group SelfName="${ph:serverGroup_name}"
+    profile="${ph:profile_name}" socket-binding-group="${ph:binding_name}">
+    <Jvm SelfName="default"
+      debug-options="${ph:serverGroup_jvm_debugOption}"
+      heap-size="${ph:serverGroup_jvm_heapSize}"
+      max-heap-size="${ph:serverGroup_jvm_maxHeapSize}" stack-size="256k">
+      <jvm-options>
+        <option value="-server"/>
+        <option value="-d64"/>
+        <option value="-XX:MetaspaceSize=${ph:serverGroup_jvm_option_metaSize}"/>
+        <option value="-XX:MaxMetaspaceSize=${ph:serverGroup_jvm_option_maxMetaSize}"/>
+        <option value="-XX:+UseParallelOldGC"/>
+        <option value="-XX:+DisableExplicitGC"/>
+        <option value="-XX:+HeapDumpOnOutOfMemoryError"/>
+        <option value="-XX:HeapDumpPath=/cores"/>
+        <option value="-verbose:gc"/>
+        <option value="-XX:+PrintGCDetails"/>
+        <option value="-XX:+PrintGCDateStamps"/>
+        <option value="-XX:+PrintGCTimeStamps"/>
+        <option value="-XX:+PrintGCApplicationConcurrentTime"/>
+        <option value="-XX:+PrintGCApplicationStoppedTime"/>
+        <option value="-XX:+UseGCLogFileRotation"/>
+        <option value="-XX:NumberOfGCLogFiles=${ph:serverGroup_jvm_option_gcLogFileCount}"/>
+        <option value="-XX:GCLogFileSize=${ph:serverGroup_jvm_option_gcLogFileSizeM}"/>
+        <option value="${ph:serverGroup_jvm_option_values_0_value}"/>
+        <option value="${ph:serverGroup_jvm_option_values_1_value}"/>
+      </jvm-options>
+    </Jvm>
+    <System-Property SelfName="javax.net.ssl.keyStore" boot-time="true" value="${ph:serverGroup_systemProp_keystoreFile}"/>
+    <System-Property SelfName="javax.net.ssl.keyStorePassword"
+      boot-time="false" value="${ph:serverGroup_systemProp_keystorePassword}"/>
+    <System-Property SelfName="javax.net.ssl.trustStore"
+      boot-time="true" value="${ph:serverGroup_systemProp_truststoreFile}"/>
+    <System-Property SelfName="javax.net.ssl.trustStorePassword"
+      boot-time="false" value="${ph:serverGroup_systemProp_truststorePassword}"/>
+    <System-Property SelfName="org.jboss.as.logging.per-deployment"
+      boot-time="true" value="false"/>
+    <System-Property SelfName="jboss.modules.metrics" boot-time="true" value="true"/>
+    <System-Property SelfName="user.timezone" boot-time="true" value="US/Eastern"/>
+    <System-Property SelfName="env.name" boot-time="true" value="${ph:serverGroup_systemProp_envName}"/>
+    <System-Property SelfName="CUT_APP_ENV" boot-time="true" value="${ph:serverGroup_systemProp_cutAppEnv}"/>
+    <System-Property
+      SelfName="${ph:serverGroup_systemProp_values_0_key}"
+      boot-time="true" value="${ph:serverGroup_systemProp_values_0_value}"/>
+    <System-Property
+      SelfName="${ph:serverGroup_systemProp_values_1_key}"
+      boot-time="true" value="${ph:serverGroup_systemProp_values_1_value}"/>
+  </Server-Group>
+  <Socket-Binding-Group SelfName="${ph:binding_name}" default-interface="public">
+    <Remote-Destination-Outbound-Socket-Binding
+      SelfName="${ph:binding_outbound_0_name}" fixed-source-port="false"
+      host="${ph:binding_outbound_0_host}" port="${ph:binding_outbound_0_port}"/>
+    <Remote-Destination-Outbound-Socket-Binding
+      SelfName="${ph:binding_outbound_1_name}" fixed-source-port="false"
+      host="${ph:binding_outbound_1_host}" port="${ph:binding_outbound_1_port}"/>
+  </Socket-Binding-Group>
+  <Multi-Server-Creation-Config auto-start="true"
+    name="${ph:serverConfig_serverName}"
+    numberOfInstance="${ph:serverConfig_serverPerHost}"
+    serverGroup="${ph:serverGroup_name}"
+    socket-binding-group="${ph:binding_name}"
+    socket-binding-port-offset="${ph:serverConfig_socketPortOffset}"
+    startIndex="${ph:serverConfig_startIndex}" status="STARTED" targetedHostList="${ph:serverConfig_hostList}">
+    <Jvm SelfName="${ph:serverConfig_serverName}">
+      <jvm-options>
+        <option value="${ph:serverConfig_jvm_option_values_0_value}"/>
+      </jvm-options>
+    </Jvm>
+    <System-Property
+      SelfName="${ph:serverConfig_systemProp_values_0_key}"
+      boot-time="true" value="${ph:serverConfig_systemProp_values_0_value}"/>
+    <System-Property
+      SelfName="${ph:serverConfig_systemProp_values_1_key}"
+      boot-time="true" value="${ph:serverConfig_systemProp_values_1_value}"/>
+  </Multi-Server-Creation-Config>
+</Phurnace>
